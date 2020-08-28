@@ -114,7 +114,7 @@ pub async fn handle_rejection(err: Rejection) -> std::result::Result<impl Reply,
                     .errors()
                     .iter()
                     .map(|error_kind| FieldError {
-                        field: error_kind.0.to_owned().to_owned(),
+                        field: error_kind.0.to_string(),
                         field_errors: match error_kind.1 {
                             ValidationErrorsKind::Struct(struct_err) => {
                                 validation_errs_to_str_vec(struct_err)
